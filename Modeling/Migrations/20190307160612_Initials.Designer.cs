@@ -9,7 +9,7 @@ using Modeling;
 namespace Modeling.Migrations
 {
     [DbContext(typeof(AppContext))]
-    [Migration("20190307160108_Initials")]
+    [Migration("20190307160612_Initials")]
     partial class Initials
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
