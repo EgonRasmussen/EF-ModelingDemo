@@ -54,7 +54,7 @@ namespace Modeling.Migrations
 
             modelBuilder.Entity("Modeling.BlogImage", b =>
                 {
-                    b.HasOne("Modeling.Blog", "Blog")
+                    b.HasOne("Modeling.Blog")
                         .WithOne("BlogImage")
                         .HasForeignKey("Modeling.BlogImage", "BlogId")
                         .OnDelete(DeleteBehavior.Cascade);

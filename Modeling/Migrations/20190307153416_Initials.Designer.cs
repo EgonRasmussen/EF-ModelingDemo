@@ -10,7 +10,7 @@ using Modeling;
 namespace Modeling.Migrations
 {
     [DbContext(typeof(AppContext))]
-    [Migration("20190307085145_Initials")]
+    [Migration("20190307153416_Initials")]
     partial class Initials
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -56,7 +56,7 @@ namespace Modeling.Migrations
 
             modelBuilder.Entity("Modeling.BlogImage", b =>
                 {
-                    b.HasOne("Modeling.Blog", "Blog")
+                    b.HasOne("Modeling.Blog")
                         .WithOne("BlogImage")
                         .HasForeignKey("Modeling.BlogImage", "BlogId")
                         .OnDelete(DeleteBehavior.Cascade);
