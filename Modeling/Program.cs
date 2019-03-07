@@ -1,4 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using System;
+using System.Collections.Generic;
 using System.Linq;
 
 namespace Modeling
@@ -16,18 +18,24 @@ namespace Modeling
                 var blog = new Blog
                 {
                     Url = "https://itdata.net/blog/1",
-                    BlogImage = new BlogImage
-                        {
-                            Caption = "Image Blog 1"
-                        }
+                    Posts = new List<Post>
+                    {
+                        new Post { Title = "Post1 title", Content = "Post1 content"},
+                        new Post { Title = "Post2 title", Content = "Post2 content"}
+                    }
                 };
+                       
                 context.Add<Blog>(blog);
                 context.SaveChanges();
 
-                Blog firstBlog = context.Blogs.Include(b => b.BlogImage).FirstOrDefault();
+                Blog firstBlog = context.Blogs.Include(b => b.Posts).FirstOrDefault();
 
-                System.Console.WriteLine($"Blog URL: {firstBlog.Url} - Image caption: {firstBlog.BlogImage.Caption}");
-            }
+                Console.WriteLine($"Blog Id: {firstBlog.BlogId} - Blog URL: {firstBlog.Url}");
+                foreach (Post post in firstBlog.Posts)
+                {
+                    Console.WriteLine($"\tPost title: {post.Title}");
+                }                
+            } 
         }
     }
 }

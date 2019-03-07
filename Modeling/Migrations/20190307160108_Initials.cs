@@ -1,5 +1,4 @@
-﻿using System;
-using Microsoft.EntityFrameworkCore.Metadata;
+﻿using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace Modeling.Migrations
@@ -22,20 +21,20 @@ namespace Modeling.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "BlogImages",
+                name: "Posts",
                 columns: table => new
                 {
-                    BlogImageId = table.Column<int>(nullable: false)
+                    PostId = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
-                    Image = table.Column<byte[]>(nullable: true),
-                    Caption = table.Column<string>(nullable: true),
+                    Title = table.Column<string>(nullable: true),
+                    Content = table.Column<string>(nullable: true),
                     BlogId = table.Column<int>(nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_BlogImages", x => x.BlogImageId);
+                    table.PrimaryKey("PK_Posts", x => x.PostId);
                     table.ForeignKey(
-                        name: "FK_BlogImages_Blogs_BlogId",
+                        name: "FK_Posts_Blogs_BlogId",
                         column: x => x.BlogId,
                         principalTable: "Blogs",
                         principalColumn: "BlogId",
@@ -43,16 +42,15 @@ namespace Modeling.Migrations
                 });
 
             migrationBuilder.CreateIndex(
-                name: "IX_BlogImages_BlogId",
-                table: "BlogImages",
-                column: "BlogId",
-                unique: true);
+                name: "IX_Posts_BlogId",
+                table: "Posts",
+                column: "BlogId");
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropTable(
-                name: "BlogImages");
+                name: "Posts");
 
             migrationBuilder.DropTable(
                 name: "Blogs");
