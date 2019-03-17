@@ -35,7 +35,8 @@ namespace Modeling
         public byte[] Image { get; set; }
         public string Caption { get; set; }
 
-        public int BlogForeignKey { get; set; }     // FK, name don't matches PK
+        //public int BlogId { get; set; }             // FK name matches PK
+        public int BlogForeignKey { get; set; }   // FK, name don't matches PK
         public Blog Blog { get; set; }
     }
 }
