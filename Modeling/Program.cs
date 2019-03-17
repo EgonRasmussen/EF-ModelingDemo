@@ -13,7 +13,7 @@ namespace Modeling
             {
                 context.Database.EnsureDeleted();
                 context.Database.EnsureCreated();
-                System.Console.WriteLine("Database deleted and created!");
+                Console.WriteLine("Database deleted and created!");
 
                 var blog = new Blog
                 {
