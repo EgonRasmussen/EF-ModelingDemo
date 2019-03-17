@@ -10,8 +10,8 @@ using Modeling;
 namespace Modeling.Migrations
 {
     [DbContext(typeof(AppContext))]
-    [Migration("20190317151911_InitialsConvention")]
-    partial class InitialsConvention
+    [Migration("20190317162516_Initials")]
+    partial class Initials
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -40,7 +40,7 @@ namespace Modeling.Migrations
                         .ValueGeneratedOnAdd()
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<int>("BlogId");
+                    b.Property<int>("BlogForeignKey");
 
                     b.Property<string>("Caption");
 
@@ -48,7 +48,7 @@ namespace Modeling.Migrations
 
                     b.HasKey("BlogImageId");
 
-                    b.HasIndex("BlogId")
+                    b.HasIndex("BlogForeignKey")
                         .IsUnique();
 
                     b.ToTable("BlogImages");
@@ -58,7 +58,7 @@ namespace Modeling.Migrations
                 {
                     b.HasOne("Modeling.Blog", "Blog")
                         .WithOne("BlogImage")
-                        .HasForeignKey("Modeling.BlogImage", "BlogId")
+                        .HasForeignKey("Modeling.BlogImage", "BlogForeignKey")
                         .OnDelete(DeleteBehavior.Cascade);
                 });
 #pragma warning restore 612, 618

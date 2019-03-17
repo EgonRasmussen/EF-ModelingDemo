@@ -4,7 +4,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace Modeling.Migrations
 {
-    public partial class InitialsConvention : Migration
+    public partial class Initials : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -29,23 +29,23 @@ namespace Modeling.Migrations
                         .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
                     Image = table.Column<byte[]>(nullable: true),
                     Caption = table.Column<string>(nullable: true),
-                    BlogId = table.Column<int>(nullable: false)
+                    BlogForeignKey = table.Column<int>(nullable: false)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_BlogImages", x => x.BlogImageId);
                     table.ForeignKey(
-                        name: "FK_BlogImages_Blogs_BlogId",
-                        column: x => x.BlogId,
+                        name: "FK_BlogImages_Blogs_BlogForeignKey",
+                        column: x => x.BlogForeignKey,
                         principalTable: "Blogs",
                         principalColumn: "BlogId",
                         onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateIndex(
-                name: "IX_BlogImages_BlogId",
+                name: "IX_BlogImages_BlogForeignKey",
                 table: "BlogImages",
-                column: "BlogId",
+                column: "BlogForeignKey",
                 unique: true);
         }
 
