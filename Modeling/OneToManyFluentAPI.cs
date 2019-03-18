@@ -15,7 +15,7 @@ namespace Modeling
             modelBuilder.Entity<Post>()
             .HasOne(p => p.Blog)
             .WithMany(b => b.Posts)
-            .HasForeignKey(p => p.BlogId);
+            .HasForeignKey(p => p.FKBlogId);
 
             //Eller den modsatte vej:
             //modelBuilder.Entity<Blog>()
@@ -41,7 +41,7 @@ namespace Modeling
         public string Title { get; set; }
         public string Content { get; set; }
 
-        public int BlogId { get; set; }     // FK
+        public int FKBlogId { get; set; }     // FK
         public Blog Blog { get; set; }
     }
 }
