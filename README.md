@@ -1,6 +1,4 @@
-# EFCoreModeling
-Demo kode til EF Core modeller
+# OneToMany Convention
 
-Består af følgende branches:
-1.OneToManyConvention
+
 
