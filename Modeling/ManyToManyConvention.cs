@@ -12,12 +12,11 @@ namespace Modeling
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            modelBuilder.Entity<PostTag>()
-                .HasKey(t => new { t.PostId, t.TagId });
+            //modelBuilder.Entity<PostTag>()
+            //    .HasKey(t => new { t.PostId, t.TagId });
         }
 
         public DbSet<Post> Posts { get; set; }
-        public DbSet<PostTag> PostTags { get; set; }
     }
 
     public class Post
@@ -26,23 +25,26 @@ namespace Modeling
         public string Title { get; set; }
         public string Content { get; set; }
 
-        public List<PostTag> PostTags { get; set; }
+        //public ICollection <PostTag> PostTags { get; set; }
+
+        public ICollection<Tag> Tags { get; set; }
     }
 
-    public class PostTag
-    {
-        public int PostId { get; set; }
-        public Post Post { get; set; }
+    //public class PostTag
+    //{
+    //    public int PostId { get; set; }
+    //    public Post Post { get; set; }
 
-        public string TagId { get; set; }
-        public Tag Tag { get; set; }
-    }
+    //    public string TagId { get; set; }
+    //    public Tag Tag { get; set; }
+    //}
 
     public class Tag
     {
         public string TagId { get; set; }
 
-        public List<PostTag> PostTags { get; set; }
+        //public ICollection<PostTag> PostTags { get; set; }
+        public ICollection<Post> Posts { get; set; }
     }
 
     
