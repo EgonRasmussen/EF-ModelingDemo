@@ -1,4 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using System;
 using System.Linq;
 
 namespace Modeling
@@ -26,7 +27,7 @@ namespace Modeling
 
                 Blog firstBlog = context.Blogs.Include(b => b.BlogImage).FirstOrDefault();
 
-                System.Console.WriteLine($"Blog URL: {firstBlog.Url} - Image caption: {firstBlog.BlogImage.Caption}");
+                Console.WriteLine($"Blog URL: {firstBlog.Url} - Image caption: {firstBlog.BlogImage.Caption}");
             }
         }
     }
