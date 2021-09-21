@@ -11,9 +11,9 @@ namespace Modeling
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseSqlServer("Server = (localdb)\\mssqllocaldb; Database = BloggingDb; Trusted_Connection = True; ")
-                .LogTo(Console.WriteLine)
-                .EnableSensitiveDataLogging();
+            optionsBuilder.UseSqlServer("Server = (localdb)\\mssqllocaldb; Database = BloggingDb; Trusted_Connection = True; ");
+                //.LogTo(Console.WriteLine)
+                //.EnableSensitiveDataLogging();
         }
     }
 
