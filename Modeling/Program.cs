@@ -1,7 +1,4 @@
-﻿using Microsoft.EntityFrameworkCore;
-using System.Linq;
-
-namespace Modeling
+﻿namespace Modeling
 {
     class Program
     {
