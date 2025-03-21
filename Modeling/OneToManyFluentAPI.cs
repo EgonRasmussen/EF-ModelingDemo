@@ -1,4 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using System;
 using System.Collections.Generic;
 
 namespace Modeling
@@ -6,9 +7,9 @@ namespace Modeling
     class AppContext : DbContext
     {
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-        {
-            optionsBuilder.UseSqlServer("Server = (localdb)\\mssqllocaldb; Database = BloggingDb; Trusted_Connection = True; ");
-        }
+        => optionsBuilder
+        .UseSqlServer("Server = (localdb)\\mssqllocaldb; Database = BloggingDb; Trusted_Connection = True; ")
+        .LogTo(Console.WriteLine, Microsoft.Extensions.Logging.LogLevel.Information);
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
